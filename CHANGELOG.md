@@ -2,6 +2,15 @@
 
 <!-- version list -->
 
+## v0.2.0 (2025-12-16)
+
+### Features
+
+- Add Kolmogorov-Smirnov statistic and p-values for goodness-of-fit
+  ([#5](https://github.com/dwsmith1983/spark-bestfit/pull/5),
+  [`974a3a3`](https://github.com/dwsmith1983/spark-bestfit/commit/974a3a3a6b486a55228dde10175696d34684216b))
+
+
 ## v0.1.1 (2025-12-14)
 
 ### Bug Fixes
