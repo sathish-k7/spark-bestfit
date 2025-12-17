@@ -7,6 +7,15 @@
 
 <!-- version list -->
 
+## v0.3.1 (2025-12-17)
+
+### Performance Improvements
+
+- Optimize Spark actions in plot_qq and filter
+  ([#19](https://github.com/dwsmith1983/spark-bestfit/pull/19),
+  [`26ffa66`](https://github.com/dwsmith1983/spark-bestfit/commit/26ffa663732c9150182b688660ba67c959f78e7b))
+
+
 ## v0.3.0 (2025-12-17)
 
 ### Features
