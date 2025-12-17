@@ -2,6 +2,15 @@
 
 <!-- version list -->
 
+## v0.3.0 (2025-12-17)
+
+### Features
+
+- Add Q-Q plots for goodness-of-fit assessment
+  ([#7](https://github.com/dwsmith1983/spark-bestfit/pull/7),
+  [`ca23d8d`](https://github.com/dwsmith1983/spark-bestfit/commit/ca23d8d85f3c2ed66854b1da1134915d2f4d4d8d))
+
+
 ## v0.2.1 (2025-12-17)
 
 ### Bug Fixes
