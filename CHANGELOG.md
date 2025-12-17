@@ -2,6 +2,15 @@
 
 <!-- version list -->
 
+## v0.2.1 (2025-12-17)
+
+### Bug Fixes
+
+- Unnecessary, superflouos pandas wrapper
+  ([#6](https://github.com/dwsmith1983/spark-bestfit/pull/6),
+  [`9dfbc6c`](https://github.com/dwsmith1983/spark-bestfit/commit/9dfbc6c656504796a9a653e24cb78f4d2eacdbc7))
+
+
 ## v0.2.0 (2025-12-16)
 
 ### Features
