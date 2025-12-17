@@ -254,7 +254,7 @@ class FitResults:
         if pvalue_threshold is not None:
             filtered = filtered.filter(F.col("pvalue") > pvalue_threshold)
 
-        return FitResults(filtered)
+        return FitResults(filtered.cache())
 
     def summary(self) -> pd.DataFrame:
         """Get summary statistics of fit quality.
@@ -302,5 +302,8 @@ class FitResults:
         count = self.count()
         if count > 0:
             best = self.best(n=1)[0]
-            return f"FitResults({count} distributions fitted, " f"best: {best.distribution} with SSE={best.sse:.6f})"
+            return (
+                f"FitResults({count} distributions fitted, "
+                f"best: {best.distribution} with KS={best.ks_statistic:.6f})"
+            )
         return f"FitResults({count} distributions fitted)"
