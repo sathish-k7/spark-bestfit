@@ -1,7 +1,7 @@
 """Core distribution fitting engine for Spark."""
 
 import logging
-from typing import List, Optional, Tuple, Union
+from typing import List, Optional, Tuple, Union, Callable
 
 import numpy as np
 import pyspark.sql.functions as F
@@ -94,7 +94,7 @@ class DistributionFitter:
         max_sample_size: int = 1_000_000,
         sample_threshold: int = 10_000_000,
         num_partitions: Optional[int] = None,
-        progress_callback: Optional[callable] = None,
+        progress_callback: Optional[Callable] = None,
     ) -> FitResults:
         """Fit distributions to data column.
 
@@ -123,6 +123,9 @@ class DistributionFitter:
             >>> def progress(current, total, dist):
             ...     print(f"Fitted {current}/{total}: {dist}")
             >>> results = fitter.fit(df, 'value', progress_callback=progress)
+
+        Warning:
+            If you use progress_callback, fitting is performed sequentially in the driver for progress reporting, which is much slower than Spark's parallel mode. This is only recommended for debugging or small numbers of distributions.
         """
         # Input validation
         self._validate_inputs(df, column, max_distributions, bins, sample_fraction)
@@ -180,6 +183,8 @@ class DistributionFitter:
                 return FitResults(results_df)
 
             # Progress callback: fit sequentially in driver for progress reporting
+            y_hist, x_hist = histogram_bc.value
+            data_sample = data_sample_bc.value
             results = []
             total = len(distributions)
             for idx, dist_name in enumerate(distributions, 1):

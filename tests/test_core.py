@@ -13,6 +13,8 @@ from spark_bestfit.distributions import DistributionRegistry
 from spark_bestfit.results import FitResults
 
 class TestDistributionFitter:
+    """Tests for DistributionFitter class."""
+
     def test_fit_with_progress_callback(self, spark_session, small_dataset):
         """Test that progress_callback is called and results are correct."""
         fitter = DistributionFitter(spark_session)
@@ -29,7 +31,6 @@ class TestDistributionFitter:
             assert current == idx
             assert total == 3
             assert isinstance(dist_name, str)
-    """Tests for DistributionFitter class."""
 
     @pytest.mark.parametrize("excluded,seed,expected_excluded,expected_seed", [
         (None, 42, DEFAULT_EXCLUDED_DISTRIBUTIONS, 42),  # defaults

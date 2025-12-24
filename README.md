@@ -75,7 +75,6 @@ fitter.plot(best, df, "value", title="Best Fit Distribution")
 
 ## API Overview
 
-fitter = DistributionFitter(spark, random_seed=123)
 
 ### Fitting Distributions
 
